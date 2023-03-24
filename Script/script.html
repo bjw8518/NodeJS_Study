@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="text">
+    <br>
+    <input type="text" id="alertText" value="1234">
+    <input type="button" id="alertBtn" value="버튼">
+    <br>
+
+    
+    <input id="input_date" type="date">
+    <input id="input_submit" type="submit" onclick="input()" value="확인">
+    
+
+    <script>
+        console.log(document.getElementById("alertBtn"));
+        document.getElementById("alertBtn").addEventListener('click', function(){
+            console.log(alertText.value);
+        });
+
+        // for(let i = 0;i<10;i++){
+        //     document.write(i);
+        //     console.log(i);
+        // }
+        function input(){
+        const dday = document.querySelector("#input_date").value;
+        console.log(dday);
+    }
+
+        for(let j=10; j<10000; j=j*10){ //첫번째:10, 두번째:100, 세번째:1000
+            document.write(j);
+            console.log(j);
+        }
+        //for(식1;식2;식4){
+        //    식3
+        //}
+
+        // 1. 식1 한번 실행
+        // 2. 식2,식3,식4 무한반복
+        // 3. 식2가 False일때까지
+    </script>
+</body>
+</html>
