@@ -36,6 +36,21 @@ app.get('/script', function(req,res){
   res.sendfile("./Script/script.html")
 })
 
+//230330
+app.get('/html', function(req,res){
+  res.sendfile("./html/index.html")
+})
+
+app.get('/jssum   ', function(req,res){
+  res.sendfile("./html/jssum.html")
+})
+
+app.get('/js_study', function(req,res){
+  res.sendfile("./html/js_study.html")
+})
+///
+
+
 // app.get('/test', function(req,res){
 //   res.send("test.html")
 // })

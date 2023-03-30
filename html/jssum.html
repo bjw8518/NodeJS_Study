@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <input type="button" id="result" value="결과">
+
+
+    <script>
+        document.getElementById('result').addEventListener('click',function(){
+            let number1 = Number(document.getElementById('num1').value);
+            let number2 = Number(document.getElementById('num2').value);
+            console.log(num1 + num2);//num1.value 이렇게 사용
+            if(number1 + number2 >=10){
+//                console.log("10이상")
+                alert("10이상")
+            }else{
+//                console.log("10미만")
+                alert("10미만")
+            }
+        });
+    </script>
+</body>
+</html>

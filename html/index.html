@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <span>입력하세요</span>
+    <input type="number" id="inputText" name="inputText">
+    <input type="number" id="inputTextt" name="inputTextt">
+    <input type="button" value="콘솔" id="consoleBtn">
+
+
+    <script>
+    //숫자 두개 입력받아서 두개를 더한값이 10보다 큰지 아닌지 콘솔에 출력
+    let obj = document.getElementById('consoleBtn').addEventListener('click',function(){
+        if(Number(document.getElementById('inputText').value) + (Number(document.getElementById('inputTextt').value)) >= 10) {
+            alert("10이상");
+        }else{
+            alert("10미만");
+        }
+        })    
+    </script>
+</body>
+</html>

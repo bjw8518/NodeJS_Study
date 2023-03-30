@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+//        let 변수명;
+        // let var1 = 10, var2, var3;
+        // var2 = "String abc";
+        // console.log(var1,var2,var3);
+
+        let human1 ={};
+        human1.age ="20"
+        human1.height ="180cm"
+        human1.name ="john"
+        console.log(human1);
+
+        let human2 ={};
+        human2.age ="30"
+        human2.height ="160cm"
+        human2.name ="jane"
+        console.log(human2);
+
+
+        let human3 ={};
+        human3.age ="25"
+        human3.height ="170"
+        human3.name ="jack"
+        console.log(human3);
+
+
+        //false undefined null 0 아니면 if는 실행함
+        // if(1){
+        //     console.log("hi");
+        // };
+        //false undefined null 0 아니면 if는 실행함
+
+
+        // for(1 ; 2 ;4){
+        //     3
+        // };
+        //1한번 실행하고 2,3,4가 무한반복 2가 false일때까지
+
+
+        //100까지 홀수 출력
+        //for(let i=1;i<=100;i=i+2){
+        //    console.log(i);
+        //}
+        
+        //랜덤
+        console.log(Math.floor(Math.random()*10));
+        //
+
+        //함수//
+        //function funcName(abc,def){//함수생성
+        //    console.log(abc+"Hello"+def+"World");
+        //}
+
+        //funcName("fuck","you"); //함수호출
+        //함수//
+        //함수의 리턴값
+        function funcs(param1,param2){
+            console.log("hello"+param1+"world"+param2+"1");
+            console.log("hello"+param1+"world"+param2+"2");
+            return param1+param2;
+        }
+        console.log(funcs("삼성","애플"));
+        
+
+    //1번===================================
+    function fact1(num){
+        let result = 1;
+        for (let i=1;i<=num;i++) {
+            result = result*i;
+        }
+            console.log(result);
+    }
+
+    for(let i=1;i<=10;i++){
+        fact1(i);
+    }
+    //1번===================================
+
+    function fact2(num){
+        let result=1;
+        for(let i=0;i<=num;i++){
+            reulst = result*1;
+        }
+        return result;
+    }
+    for(let i=1;i<=10;i++){
+        console.log(fact2(i))
+    }
+
+
+
+    </script>
+</body>
+</html>
