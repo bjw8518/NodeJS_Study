@@ -20,22 +20,6 @@ var connection = mysql.createConnection({
   password : '0000',
   database : 'web'
 });
-
-// app.get('/', (req, res) => {
-//   res.send('Hello World!'); 
-// });
-
-                    // connection.connect(function(err) {
-                    //   if(err)throw err;
-                    //   console.log("connected");
-                    //   var sql = "INSERT INTO post (title,content)values ('제목99','내용99')";
-                    //   con.query(sql, function (err, result) {
-                    //     if (err) throw err;
-                    //     console.log("1 record");
-
-                    //   });
-
-                    // });
 /*=========================================*/
 app.get('/test',function(req,res){
   connection.query('SELECT * FROM post;', function (error, results, fields) {

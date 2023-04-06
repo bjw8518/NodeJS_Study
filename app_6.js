@@ -42,13 +42,25 @@ app.get('/html', function(req,res){
 })
 
 app.get('/jssum   ', function(req,res){
-  res.sendfile("./html/jssum.html")
+  res.sendfile("./html/jsStudy.html")
 })
 
 app.get('/js_study', function(req,res){
   res.sendfile("./html/js_study.html")
 })
-///
+//230406
+app.get('/script_login', function(req,res){
+  res.sendfile("./html/script_login.html")
+})
+
+app.get('/script_debugger', function(req,res){
+  res.sendfile("./html/script_debugger.html")
+})
+
+app.get('/script_gugudan', function(req,res){
+  res.sendfile("./html/script_gugudan.html")
+})
+
 
 
 // app.get('/test', function(req,res){

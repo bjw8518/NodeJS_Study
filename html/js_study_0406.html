@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>아이디</span><input type="text" id="id">
+    <span>패스워드</span><input type="number" id="pw">
+    <input type="button" id="result" value="결과">
+    <br>
+    <br>
+    <input type="text" id="iden"value="">
+    <input type="button" onclick="getinput()" value="버튼">
+
+    <script>
+        
+
+        document.getElementById('result').addEventListener('click',function(){
+            let iden = Number(document.getElementById('id').value);
+            let pwd = Text(document.getElementById('pw').value);
+            
+        })
+
+
+            //console.log(iden);//num1.value 이렇게 사용
+            //console.log(pwd)
+            id = prompt('아이디를 입력해주세요.');
+            if(id=='egoing'){
+            password = prompt('비밀번호를 입력해주세요.');
+            if(password==='111111'){
+                alert('인증 했습니다.');
+            } else {
+                alert('인증에 실패 했습니다.');
+            }
+        } else {
+            alert('인증에 실패 했습니다.');
+        }
+
+//             if(number1 + number2 >=10){
+// //                console.log("10이상")
+//                 alert("10이상")
+//             }else{
+// //                console.log("10미만")
+//                 alert("10미만")
+//             }
+
+        // let obj = document.getElementById('consoleBtn').addEventListener('click',function(){
+        //         if(Number(document.getElementById('inputText').value) + (Number(document.getElementById('inputTextt').value)) >= 10) {
+        //             alert("10이상");
+        //         }else{
+        //             alert("10미만");
+        //         }
+        //         })   
+        
+    </script>
+</body>
+</html>
