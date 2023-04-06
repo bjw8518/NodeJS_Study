@@ -34,6 +34,12 @@ app.get('/script_arrays', function(req,res){
   res.sendfile("./html/script_arrays.html")
 })
 
+app.get('/script_jjack', function(req,res){
+  res.sendfile("./html/script_jjack.html")
+})
+
+
+
 //-----------------------------------------------
 
 
