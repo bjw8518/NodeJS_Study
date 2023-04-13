@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    1번 0<input type="radio" name="r1" value="zero">
+        1<input type="radio" name="r1" value="one">
+        2<input type="radio" name="r1" value="two">
+        3<input type="radio" name="r1" value="three">
+        4<input type="radio" name="r1" value="four">
+        가중치<input type="number" id="area_1"><br>  
+    2번 0<input type="radio" name="r1" value="zero">
+        1<input type="radio" name="r1" value="one">
+        2<input type="radio" name="r1" value="two">
+        3<input type="radio" name="r1" value="three">
+        4<input type="radio" name="r1" value="four">
+        가중치<input type="number" id="area_2"><br>  
+    3번 0<input type="radio" name="r1" value="zero">
+        1<input type="radio" name="r1" value="one">
+        2<input type="radio" name="r1" value="two">
+        3<input type="radio" name="r1" value="three">
+        4<input type="radio" name="r1" value="four">
+        가중치<input type="number" id="area_3"><br>  
+    4번 0<input type="radio" name="r1" value="zero">
+        1<input type="radio" name="r1" value="one">
+        2<input type="radio" name="r1" value="two">
+        3<input type="radio" name="r1" value="three">
+        4<input type="radio" name="r1" value="four">
+        가중치<input type="number" id="area_4"><br>
+
+        <input type="button" value="확인" id="radioCheckBtn">
+
+<div id='result'></div>
+    <br><br>
+    <script>
+        let button = document.getElementById("radioCheckBtn");
+        button.addEventListener('click',function(){
+            document.getElementById("result").innerHTML="";
+
+        })
+        
+
+
+
+
+        // let radio = document.getElementsByName("r1");
+        // radio.addEventListener('click',function(){
+        //     document.write(radio);
+            
+            /*
+            //라디오버튼들의 name(r1)을 가져와서 radioBtns에 넣음
+            let radioBtns = document.getElementsByName("r1");
+            //radioBtns =r1의 갯수만큼 증가하면서 반복
+            for(let i=0;i<radioBtns.length;i++){
+                debugger;
+                //radioBtns의 i번째가 checked됬으면
+                if(radioBtns[i].checked){
+                    console.log(`${i+1}번째가 선택됨`);
+                }
+            }
+
+        })*/
+    </script>
+</body>
+</html>

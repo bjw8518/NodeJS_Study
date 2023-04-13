@@ -13,7 +13,7 @@ var http = require('http');
 var app = express();
 var server = http.createServer(app).listen(80);
 
-//230406----------------------------------------1
+//230406----------------------------------------
 app.get('/script_login', function(req,res){
   res.sendfile("./html/script_login.html")
 })
@@ -37,9 +37,26 @@ app.get('/script_arrays', function(req,res){
 app.get('/script_jjack', function(req,res){
   res.sendfile("./html/script_jjack.html")
 })
+//230413----------------------------------------
+app.get('/js_study', function(req,res){
+  res.sendfile("./html/web_04_13/js_study.html")
+})
 
+app.get('/js_array', function(req,res){
+  res.sendfile("./html/web_04_13/js_array.html")
+})
 
+app.get('/js_array_ans', function(req,res){
+  res.sendfile("./html/web_04_13/js_array_ans.html")
+})
 
+app.get('/js_radio_btn', function(req,res){
+  res.sendfile("./html/web_04_13/js_radio_btn.html")
+})
+
+app.get('/js_radio_btn_multiple', function(req,res){
+  res.sendfile("./html/web_04_13/js_radio_btn_multiple.html")
+})
 //-----------------------------------------------
 
 

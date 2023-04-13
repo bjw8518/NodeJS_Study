@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <p>test</p>
+    <script>
+//====================2차원 배열==========================================
+//2중 for문을 사용해서 arr1,arr2,arr3,arr4 각각의 배열을 아래와 같이 만드세요
+//=========================================================
+    let arr1 = []; //배열생성
+    hamsoo = 1;
+    for (let i = 0; i < 5; i++){    //i가 5보다 작을때까지 ++하면서 반복
+        let inner = []; //내부배열
+        for (let j = 0; j < 5; j++){    //j가 5보다 작을때까지 ++하면서 반복
+            inner.push(hamsoo);    //
+            hamsoo++;  //증감
+        }
+        arr1.push(inner)
+    }
+    console.log(arr1);
+//=========================================================
+    let arr2 = [];  //배열생성
+    hamsoo = 1;    
+    for (let i = 0; i < 5; i++) {   //i가 5보다 작을때까지 ++하면서 반복
+        let inner = []; //내부배열
+        for (let j = 0; j < 5; j++) {   //j가 5보다 작을때까지 ++하면서 반복
+            inner.push(hamsoo + (j * 3));
+        }
+        arr2.push(inner);
+        hamsoo += 15;
+    }
+    console.log(arr2);
+//=========================================================
+    let arr_3 = [];
+    for (let i = 0; i <= 5; i++) {
+        //console.log(arr3)
+}
+    console.log(arr_3);
+</script>
+</body>
+</html>

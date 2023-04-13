@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span class="num">1</span><input type="radio" name="r1"><br>
+    <span class="num">2</span><input type="radio" name="r1"><br>
+    <span class="num">3</span><input type="radio" name="r1"><br>
+    <span class="num">4</span><input type="radio" name="r1"><br>
+    <span class="num">5</span><input type="radio" name="r1"><br>
+    <span class="num">6</span><input type="radio" name="r1"><br>
+    <span class="num">7</span><input type="radio" name="r1"><br>
+    <input type="button" value="확인" id="radioCheckBtn">
+    <p>test</p>
+    <script>
+        let button = document.getElementById("radioCheckBtn");
+        button.addEventListener('click',function(){
+
+            //라디오버튼들의 name(r1)을 가져와서 radioBtns에 넣음
+            let radioBtns = document.getElementsByName("r1");
+            //radioBtns =r1의 갯수만큼 증가하면서 반복
+            for(let i=0;i<radioBtns.length;i++){
+                debugger;
+                //radioBtns의 i번째가 checked됬으면
+                if(radioBtns[i].checked){
+                    console.log(`${i+1}번째가 선택됨`);
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

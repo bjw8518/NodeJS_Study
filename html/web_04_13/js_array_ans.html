@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <p>test</p>
+    <script>
+//====================2차원 배열==========================================
+//2중 for문을 사용해서 arr1,arr2,arr3,arr4 각각의 배열을 아래와 같이 만드세요
+//=========================================================
+    // let arr1 =[],arr2 =[],arr3 =[],arr4 =[];
+    // let insertNum=1;
+
+    // for(let i = 0;i<5;i++){
+    //     arr1[i] =[];
+    //     for(let j=0;j<5;j++){
+    //         arr1[i][j]=i*5+j+1;
+    //     }
+    // }
+
+    // for(let i = 0;i<5;i++){
+    //     arr2[i] =[];
+    //     for(let j=0;j<5;j++){
+    //         arr2[i][j]=i*15+j*3+1;
+    //     }
+    // }
+
+    // for(let i = 0;i<5;i++){
+    //     arr3[i] =[];
+    //     for(let j=0;j<5;j++){
+    //         arr3[i][j]=i*j;
+    //     }
+    // }
+
+    // for(let i = 0;i<5;i++){
+    //     arr4[i] =[];
+    //     for(let j=0;j<5;j++){
+    //         arr4[i][j]=`${i}${j}`;
+    //     }
+    // }
+    // console.log(arr1)
+    // console.log(arr2)
+    // console.log(arr3)
+    // console.log(arr4)
+
+    let arr5=[];
+    let num = 0;
+    for(let i = 0;i<5;i++){
+        arr5[i]=[];
+        for(let j=0;j<5;j++){
+            arr5[i][j] =num;
+            num += i*2 + j*3;
+            debugger;
+        }
+    }
+    console.log(arr5);
+
+</script>
+</body>
+</html>
