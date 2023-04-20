@@ -16,60 +16,81 @@ var server = http.createServer(app).listen(80);
 //230406----------------------------------------
 app.get('/script_login', function(req,res){
   res.sendfile("./html/script_login.html")
-})
+});
 
 app.get('/script_debugger', function(req,res){
   res.sendfile("./html/script_debugger.html")
-})
+});
 
 app.get('/script_gugudan', function(req,res){
   res.sendfile("./html/script_gugudan.html")
-})
+});
 
 app.get('/script_gugudan_ex', function(req,res){
   res.sendfile("./html/script_gugudan_ex.html")
-})
+});
 
 app.get('/script_arrays', function(req,res){
   res.sendfile("./html/script_arrays.html")
-})
+});
 
 app.get('/script_jjack', function(req,res){
   res.sendfile("./html/script_jjack.html")
-})
+});
 //230413----------------------------------------
 app.get('/js_study', function(req,res){
   res.sendfile("./html/web_04_13/js_study.html")
-})
+});
 
 app.get('/js_array', function(req,res){
   res.sendfile("./html/web_04_13/js_array.html")
-})
+});
 
 app.get('/js_array_ans', function(req,res){
   res.sendfile("./html/web_04_13/js_array_ans.html")
-})
+});
 
 app.get('/js_radio_btn', function(req,res){
   res.sendfile("./html/web_04_13/js_radio_btn.html")
-})
+});
 
 app.get('/js_radio_btn_multiple', function(req,res){
   res.sendfile("./html/web_04_13/js_radio_btn_multiple.html")
-})
-//-----------------------------------------------
+});
+//230420-----------------------------------------------
+app.get('/today_230420', function(req,res){
+  res.sendfile("./html/web_04_20/today_230420.html")
+});
+app.get('/ja_radio_btn', function(req,res){
+  res.sendfile("./html/web_04_20/ja_radio_btn.html")
+});
+app.get('/ja_radio_btn_JQ', function(req,res){
+  res.sendfile("./html/web_04_20/ja_radio_btn_JQ.html")
+});
 
 
+//----------------ajax-----------------------
+app.get('/ajax', function(req,res){
+  res.sendfile("./html/web_04_20/ajaxTest.html")
+});//클라이언트
 
-//230406(lifecoding)----------------------------------------
-app.get('/ex_01', function(req,res){
-  res.sendfile("./lifecoding/ex_01.html")
-})
+app.get('/ajaxTest', function(req,res){
+  res.send("ajax response")
+}); //라우터
+//----------------ajax-----------------------
+app.get('/request1', function(req,res){
+  res.send("response1")
+}); //라우터
+app.get('/request2', function(req,res){
+  res.send("response2")
+}); //라우터
+app.get('/request3', function(req,res){
+  res.send("response3")
+}); //라우터
+app.get('/request4', function(req,res){
+  res.send("response4")
+}); //라우터
 
-app.get('/ex_02', function(req,res){
-  res.sendfile("./lifecoding/ex_02.html")
-})
-//)---------------------------------------------------------
-// app.get('/test', function(req,res){
-//   res.send("test.html")
-// })
+app.get('/ajax_request', function(req,res){
+  res.sendfile("./html/web_04_20/ajax_request.html")
+});//클라이언트

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="" id="ident">
+    <input type="number" id="pwd">
+    <input type="button" id="result" value="결과">
+    <br><br>
+
+    <span class="num">0</span><input type="radio" name="b1">
+    <span class="num">1</span><input type="radio" name="b1">
+    <span class="num">2</span><input type="radio" name="b1">
+    <span class="num">3</span><input type="radio" name="b1">
+    <span class="num">4</span><input type="radio" name="b1">
+    가중치<input type="text" id="l1">
+    <br>
+
+    <span class="num">0</span><input type="radio" name="b2">
+    <span class="num">1</span><input type="radio" name="b2">
+    <span class="num">2</span><input type="radio" name="b2">
+    <span class="num">3</span><input type="radio" name="b2">
+    <span class="num">4</span><input type="radio" name="b2">
+    가중치<input type="text" id="l2">
+    <br>
+
+    <span class="num">0</span><input type="radio" name="b3">
+    <span class="num">1</span><input type="radio" name="b3">
+    <span class="num">2</span><input type="radio" name="b3">
+    <span class="num">3</span><input type="radio" name="b3">
+    <span class="num">4</span><input type="radio" name="b3">
+    가중치<input type="text" id="l3">
+    <br>
+    
+    <input type="button" value="확인" id="radioCheckBtn">
+    <div id="resultArea">
+
+    </div>
+
+
+    <p>test</p>
+    </body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        
+        $("#radioCheckBtn").click(function(){
+            let l1 = $("#l1").val();
+            let l2 = $("#l2").val();
+            let l3 = $("#l3").val();
+
+            let b1Radio = document.getElementsByName('b1');
+            let b2Radio = document.getElementsByName('b2');
+            let b3Radio = document.getElementsByName('b3');
+            
+            
+            for(let i=0;i<b1Radio.length;i++){
+                if(b1Radio[i].checked){
+                    b1 = i;
+                }
+            }
+            for(let i=0;i<b2Radio.length;i++){
+                if(b2Radio[i].checked){
+                    b2 = i;
+                }
+            }
+            for(let i=0;i<b3Radio.length;i++){
+                if(b3Radio[i].checked){
+                    b3 = i;
+                }
+            }
+
+            $("resultArea").html(`${b1} x ${l1} + ${b2} x ${l2} + ${b3} x ${l3} = ${b1*l1 + b2*l2 + b3*l3}`);
+            // document.getElementById("resultArea").innerHTML=
+            // `${b1} x ${l1} + ${b2} x ${l2} + ${b3} x ${l3} = ${b1*l1 + b2*l2 + b3*l3}`;
+
+
+            //라디오버튼들의 name(r1)을 가져와서 radioBtns에 넣음
+            let radioBtns = document.getElementsByName("r1");
+            //radioBtns =r1의 갯수만큼 증가하면서 반복
+            for(let i=0;i<radioBtns.length;i++){
+                debugger;
+                //radioBtns의 i번째가 checked됬으면
+                if(radioBtns[i].checked){
+                    console.log(`${i+1}번째가 선택됨`);
+                }
+            }
+
+        });
+        
+
+        document.getElementById('result').addEventListener('click',function(){
+            let idInput = document.getElementById('ident').value;
+            let pwInput = Number(document.getElementById('pwd').value);
+            let ident = "polytech";
+            let passwordd = 12341234;
+//          console.log(identt + pwdd);//console print확인
+            
+            if(idInput==ident && pwInput == passwordd){
+                console.log("인증됨")
+            }else{
+                console.log("인증되지않음")
+            }
+        });
+    </script>
+</html>
