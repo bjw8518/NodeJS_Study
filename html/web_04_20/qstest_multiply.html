@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <input type="number" id="num3">
+    <input type="button" value="multiply" id="multiply">
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#multiply").click(function(){ //sub 인풋버튼누르면
+            let number1 = Number($("#num1").val());
+            let number2 = Number($("#num2").val());
+            let number3 = Number($("#num3").val());
+            $.ajax({
+            url: `http://localhost/qsmultiply?num1=${number1}&num2=${number2}&num3=${number3}`,    //
+            data: {},
+            success:function(data){
+                console.log(data);
+                alert(data);
+            }
+        });
+    });
+    </script>
+</html>

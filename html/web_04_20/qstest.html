@@ -7,15 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="button" value="ajax" id="ajaxBtn">
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <input type="button" value="플러스" id="sub">
 </body>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script>
-        $("#ajaxBtn").click(function(){
-
-        
-        $.ajax({
-            url: 'http://localhost/ajaxTest',
+        /////////////////////////////////
+        $("#sub").click(function(){ //sub 인풋버튼누르면
+            let number1 = Number($("#num1").val());
+            let number2 = Number($("#num2").val());
+            $.ajax({
+            url: `http://localhost/qsSum?num1=${number1}&num2=${number2}`,    //
             data: {},
             success:function(data){
                 console.log(data);

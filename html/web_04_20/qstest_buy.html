@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="money">
+    <input type="button" value="구매가능한 아이템 보기" id="qstestbuy">
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#qstestbuy").click(function(){ //sub 인풋버튼누르면
+            let buymoney = Number($("#money").val());
+            $.ajax({
+            url: `http://localhost/qstestbuy?cont=${buymoney}`,
+            data: {},
+            success:function(data){
+                console.log(data);
+                alert(data);
+            }
+        });
+    });
+    </script>
+</html>

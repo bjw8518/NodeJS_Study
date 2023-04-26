@@ -94,3 +94,93 @@ app.get('/request4', function(req,res){
 app.get('/ajax_request', function(req,res){
   res.sendfile("./html/web_04_20/ajax_request.html")
 });//클라이언트
+
+
+
+
+app.get('/qstest', function(req,res){
+  res.sendfile("./html/web_04_20/qstest.html")
+});//클라이언트
+
+app.get('/qsSum', function(req,res){  //라우터!!!!!!!!!
+  let number1 = Number(req.query.num1);  //num1을 num1변수에담음
+  let number2 = Number(req.query.num2);  //num2을 num2변수에담음
+  let resultSum = number1 + number2;  //resultSum = number1 + number2 
+  res.send(""+resultSum);
+  console.log(number1);  //num1의 값
+  console.log(number2);  //num2의 값
+  console.log(resultSum); //result의 값
+}); //?는 쿼리스트링
+
+
+
+
+
+
+app.get('/qstest_multiply', function(req,res){
+  res.sendfile("./html/web_04_20/qstest_multiply.html")
+});//클라이언트
+
+app.get('/qsmultiply', function(req,res){  //라우터!!!!!!!!!
+  let number1 = Number(req.query.num1);  //num1을 num1변수에담음
+  let number2 = Number(req.query.num2);  //num2을 num2변수에담음
+  let number3 = Number(req.query.num3);  //num2을 num2변수에담음
+  let resultSum = number1 * number2 * number3;  //resultSum = number1 + number2 
+  res.send(""+resultSum);
+  console.log(number1);  //num1의 값
+  console.log(number2);  //num2의 값
+  console.log(number3);  //num2의 값
+  console.log(resultSum); //result의 값
+}); //?는 쿼리스트링
+
+
+////////////////////////////////s
+
+app.get('/qstest_buy', function(req,res){
+  res.sendfile("./html/web_04_20/qstest_buy.html")
+});//클라이언트
+
+app.get('/qstestbuy', function(req,res){  //라우터!!!!!!!!!
+  let haveMoney = Number(req.query.cont);
+  //res.send(""+resultSum);
+  let nomoney = 900;
+  let item1_value = 1000;
+  let item1 = "천원짜리 다이소 집개";
+  let item2_value = 5000;
+  let item2 = "오천원짜리 편의점도시락";
+  let item3_value = 10000;
+  let item3 ="1만원짜리 4캔만원 맥주";
+  let item4_value = 30000;
+  let item4 ="3만원짜리 도미노피자";
+  let item5_value = 50000;
+  let item5 ="5만원짜리 신세계 상품권";
+  let item6_value = 100000;
+  let item6 ="10만원짜리 마장동 한우 1++";
+  let item7_value = 500000;
+  let item7 ="50만원짜리 소니 헤드폰";
+  
+  if(haveMoney <= nomoney){
+    res.send("창놈새끼");
+  }else if(haveMoney <= item1_value){
+    res.send(item1)
+  }else if(haveMoney <= item2_value){
+    res.send(item2);
+
+  }else if(haveMoney <= item3_value){
+    res.send(item3);
+
+  }else if(haveMoney <= item4_value){
+    res.send(item4);
+
+  }else if(haveMoney <= item5_value){
+    res.send(item5);
+
+  }else if(haveMoney <= item6_value){
+    res.send(item6);
+
+  }else if(haveMoney <= item7_value){
+    res.send(item7);
+  }else{
+    res.send("돈이 많네요");
+  }
+}); //?는 쿼리스트링
