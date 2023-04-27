@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="price">
+    <input type="button" value="확인" id="getCarPriceBtn">
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#getCarPriceBtn").click(function(){
+
+$.ajax({
+    url: `http://localhost/getCarPrice?price=${$("#price").val()}`,
+    data: {},
+    success:function(data){
+        console.log(data);
+        alert(data);
+    }
+});
+});
+    </script>
+</html>

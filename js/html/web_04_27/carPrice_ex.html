@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>차종</span>
+    <select id="brand">
+        <option value="0">현대 (hyundai)</option>
+        <option value="1">기아 (KIA)</option>
+        <option value="2">쌍용 (Ssangyong)</option>
+        <option value="3">벤츠 (Mercedes-Benz)</option>
+        <option value="4">BMW</option>
+</select>
+<br>
+<span>색상</span>
+    <select id="color">
+        <option value="0">red</option>
+        <option value="1">blue</option>
+        <option value="2">green</option>
+        <option value="3">yellow</option>
+        <option value="4">black</option>
+</select>
+    <input type="button" value="확인" id="getCarPriceBtn">
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#getCarPriceBtn").click(function(){
+            $.ajax({
+                url: `http://localhost/getCarPrice?brand=${$("#brand").val()}&color=${$("#color").val()}`,
+                data: {},
+                success:function(data){
+                    console.log(data);
+                    //console.log($("#carType option:selected").html());
+                }
+            });
+        });
+    </script>
+</html>

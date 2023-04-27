@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>차종</span>
+    <select id="carType">
+        <option value="2100">현대 (hyundai)</option>
+        <option value="1300">기아 (KIA)</option>
+        <option value="1500">쌍용 (Ssangyong)</option>
+        <option value="3500">벤츠 (Mercedes-Benz)</option>
+        <option value="3200">BMW</option>
+</select>
+<br>
+<span>색상</span>
+    <select id="carColor">
+        <option value="100">red</option>
+        <option value="120">blue</option>
+        <option value="200">green</option>
+        <option value="130">yellow</option>
+        <option value="80">black</option>
+</select>
+    <input type="button" value="확인" id="getCarPrice">
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#getCarPrice").click(function(){
+            let carType = Number($("#carType option:selected").val());
+            let carColor = Number($("#carColor option:selected").val());
+$.ajax({
+    url: `http://localhost/getCarPrice?carType=${carType}&carColor=${carColor}`,
+    data: {},
+    success:function(data){
+        console.log(data);
+        //console.log($("#carType option:selected").html());
+    }
+});
+});
+    </script>
+</html>

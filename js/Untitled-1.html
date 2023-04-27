@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <select class="form-control" id="inquiry-modal-consult-id">
+        <option data-id="id1234" data-mobile="010-1234-1234">id1234(010-1234-1234)</option>
+    </select>
+
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        //JavaScript내에서 호출방법(JQuery활용)
+        var user_info = $("#inquiry-modal-consult-id option:selected");
+        var user_id = user_info.attr('data-id');           //  id1234 추출
+        var user_phone = user_info.attr('data-mobile');   // 010-1234-1234 추출
+    
+        console.log(user_info);
+        console.log(user_id);
+        console.log(user_phone);
+    </script>
+    
+    
+</body>
+</html>
