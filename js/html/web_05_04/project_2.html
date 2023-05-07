@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <button onclick="addInput()">추가</button>
+    <button onclick="calculateSum()">계산결과</button>
+    <div id="input-container"></div>
+    <p id="sum"></p>
+
+    <script>
+        let inputCount = 0;
+
+        function addInput() {
+            inputCount++;
+            const inputContainer = document.getElementById("input-container");
+            const input = document.createElement("input");
+            input.type = "number";
+            input.id = `input-${inputCount}`;
+            inputContainer.appendChild(input);
+        }
+
+        function calculateSum() {
+            let sum = 0;
+            for (let i = 1; i <= inputCount; i++) {
+                const input = document.getElementById(`input-${i}`);
+                if (input) {
+                    sum += parseInt(input.value);
+                }
+            }
+            const sumElement = document.getElementById("sum");
+            sumElement.innerText = `결과: ${sum}`;
+        }
+    </script>
+</body>
+</html>

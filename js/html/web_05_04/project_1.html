@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form>
+        <input type="radio" name="num1" value="1">1
+        <input type="radio" name="num1" value="2">2
+        <input type="radio" name="num1" value="3">3
+        <input type="radio" name="num1" value="4">4
+        <input type="radio" name="num1" value="5">5
+        <input type="radio" name="num1" value="5">5
+        <input type="radio" name="num1" value="6">6
+        <input type="radio" name="num1" value="7">7
+        <input type="radio" name="num1" value="8">8
+        <input type="radio" name="num1" value="9">9
+        <input type="radio" name="num1" value="10">10
+        <br>
+        <input type="radio" name="num2" value="1">1
+        <input type="radio" name="num2" value="2">2
+        <input type="radio" name="num2" value="3">3
+        <input type="radio" name="num2" value="4">4
+        <input type="radio" name="num2" value="5">5
+        <input type="radio" name="num2" value="5">5
+        <input type="radio" name="num2" value="6">6
+        <input type="radio" name="num2" value="7">7
+        <input type="radio" name="num2" value="8">8
+        <input type="radio" name="num2" value="9">9
+        <input type="radio" name="num2" value="10">10
+        <br>
+        <input type="radio" name="num3" value="1">1
+        <input type="radio" name="num3" value="2">2
+        <input type="radio" name="num3" value="3">3
+        <input type="radio" name="num3" value="4">4
+        <input type="radio" name="num3" value="5">5
+        <input type="radio" name="num3" value="5">5
+        <input type="radio" name="num3" value="6">6
+        <input type="radio" name="num3" value="7">7
+        <input type="radio" name="num3" value="8">8
+        <input type="radio" name="num3" value="9">9
+        <input type="radio" name="num3" value="10">10
+        <br>
+        <button type="button" onclick="calculate()">계산</button>
+    </form>
+    <script>
+    function calculate() {
+        var num1 = parseInt(document.querySelector('input[name="num1"]:checked').value);
+        var num2 = parseInt(document.querySelector('input[name="num2"]:checked').value);
+        var num3 = parseInt(document.querySelector('input[name="num3"]:checked').value);
+        var nums = [num1, num2, num3];
+        var max = Math.max.apply(null, nums);
+        var min = Math.min.apply(null, nums);
+        console.log(Math.pow(max, min));
+    }
+    </script>
+    </body>
+</html>

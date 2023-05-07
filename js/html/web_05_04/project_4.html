@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        국어<input type="text" id="korean"><br>
+        영어<input type="text" id="english"><br>
+        영어<input type="text" id="math"><br>
+
+        <input type="button" value="계산" id="sub">
+    </form>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#sub").click(function(){ //sub 인풋버튼누르면
+            let korean = Number($("#korean").val());
+            let english = Number($("#english").val());
+            let math = Number($("#math").val());
+            $.ajax({
+            url: `http://localhost/subjectsum?korean=${korean}&english=${english}&math=${math}`,    //
+            data: {},
+            success:function(data){
+                console.log(data);
+            }
+        });
+    });
+    </script>
+</body>
+</html>
+<!--
+    Node js로 데이터데이스 없이 국어,영어,수학 점수를 input text로 입력받아 버튼 클릭 시 request에 쿼리스트링으로 담아 서버로 전송하고,
+국어 2,영어 3,수학 5의 가중치로 총점을 계산하여 현재까지 입력받은 점수들 중에서 석차를 response로 받아
+화면에 누적해서  출력하세요
+(기존에 입력받은 총점 데이터가 200,200,150.150에서 새 총점값이 150이라면 2등으로 동률이면 가장 높은 석차)
+
+-->

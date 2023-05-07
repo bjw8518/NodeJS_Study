@@ -23,34 +23,13 @@
     <script>
         let button = document.getElementById("radioCheckBtn");
         button.addEventListener('click',function(){
-
-            //라디오버튼들의 name(r1)을 가져와서 radioBtns에 넣음
             let radioBtns = document.getElementsByName("r1");
-            //radioBtns =r1의 갯수만큼 증가하면서 반복
             for(let i=0;i<radioBtns.length;i++){
-                debugger;
-                //radioBtns의 i번째가 checked됬으면
                 if(radioBtns[i].checked){
-                    console.log(`${i+1}번째가 선택됨`);
-                }
-            }
-
+                    console.log(`${i+1}`);
+                }}
         });
-        
-
-        document.getElementById('result').addEventListener('click',function(){
-            let idInput = document.getElementById('ident').value;
-            let pwInput = Number(document.getElementById('pwd').value);
-            let ident = "polytech";
-            let passwordd = 12341234;
-//          console.log(identt + pwdd);//console print확인
-            
-            if(idInput==ident && pwInput == passwordd){
-                console.log("인증됨")
-            }else{
-                console.log("인증되지않음")
-            }
-        });
+    
     </script>
 </body>
 </html>
