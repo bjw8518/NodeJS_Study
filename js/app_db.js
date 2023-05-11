@@ -21,10 +21,6 @@ var connection = mysql.createConnection({
   database  : 'web'
 });
 
-app.get('/insert', function(req,res){
-  res.sendFile(__dirname + "/insert.html");
-});
-
 app.get('/list', function (req,res){
   let query = `INSERT INTO post
   (title, content)
@@ -38,7 +34,7 @@ app.get('/list', function (req,res){
 });
 
 app.get('/list', function (req, res) {
-  connection.query("SELECT * FROM post2 ORDER BY NO DESC;", function (error, results, fields) {
+  connection.query("SELECT * FROM post ORDER BY NO DESC;", function (error, results, fields) {
     if (error) throw error;
     res.send(results);
   });
