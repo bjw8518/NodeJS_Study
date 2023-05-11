@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    제목<input type="text" id="title"><br>
+    내용<input type="text" id="content"><br>
+    <button value="입력" id="send">
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $("#send").click(function() {
+                    var title = $("#title-input").val();
+                    var text = $("#text-input").val();
+                    $.ajax({
+                        url: "/posts",
+                        method: "POST",
+                        data: {title: title, text: text},
+                        success: function(response) {
+                            $("#result").html(response);
+                        }
+                    });
+                });
+            });
+        </script>
+</html>

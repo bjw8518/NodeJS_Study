@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>글쓰기</title>
+    
+</head>
+<body>
+    <h1>글쓰기</h1>
+    
+    제목<input type="text" id="titleInput"><br>
+    내용<textarea id="contentInput"></textarea><br>
+    <button id="send">글쓰기</button>
+    <div id="result"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#send").click(function() {
+                let title = $("#titleInput").val();
+                let content = $("#contentInput").val();
+                $.ajax({
+                    url: "/posts",
+                    method: "POST",
+                    data: {title: title, text: text},
+                    success: function(response) {
+                        $("#result").html(response);
+                    }
+                });
+            });
+        });
+    </script>
+</html>

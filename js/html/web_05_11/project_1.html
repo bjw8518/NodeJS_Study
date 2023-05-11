@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form>
+        <input type="radio" name="num1" value="1">1
+        <input type="radio" name="num1" value="2">2
+        <input type="radio" name="num1" value="3">3
+        <input type="radio" name="num1" value="4">4
+        <input type="radio" name="num1" value="5">5
+        <input type="radio" name="num1" value="5">5
+        <input type="radio" name="num1" value="6">6
+        <input type="radio" name="num1" value="7">7
+        <input type="radio" name="num1" value="8">8
+        <input type="radio" name="num1" value="9">9
+        <input type="radio" name="num1" value="10">10
+        <br>
+        <input type="radio" name="num2" value="1">1
+        <input type="radio" name="num2" value="2">2
+        <input type="radio" name="num2" value="3">3
+        <input type="radio" name="num2" value="4">4
+        <input type="radio" name="num2" value="5">5
+        <input type="radio" name="num2" value="5">5
+        <input type="radio" name="num2" value="6">6
+        <input type="radio" name="num2" value="7">7
+        <input type="radio" name="num2" value="8">8
+        <input type="radio" name="num2" value="9">9
+        <input type="radio" name="num2" value="10">10
+        <br>
+        <input type="radio" name="num3" value="1">1
+        <input type="radio" name="num3" value="2">2
+        <input type="radio" name="num3" value="3">3
+        <input type="radio" name="num3" value="4">4
+        <input type="radio" name="num3" value="5">5
+        <input type="radio" name="num3" value="5">5
+        <input type="radio" name="num3" value="6">6
+        <input type="radio" name="num3" value="7">7
+        <input type="radio" name="num3" value="8">8
+        <input type="radio" name="num3" value="9">9
+        <input type="radio" name="num3" value="10">10
+        <br>
+        <button type="button" value="제곱" id="btnResult">제곱</button>
+    </form>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $("#btnResult").click(function(){
+            let num1,num2,num3;
+            for(let i = 0;i<document.getElementsByName("num1").length;i++){
+                if(document.getElementsByName("num1")[i].checked){
+                    num1=i+1;
+                }
+                if(document.getElementsByName("num2")[i].checked){
+                    num2=i+1;
+                }
+                if(document.getElementsByName("num3")[i].checked){
+                    num3=i+1;
+                }
+            }
+            let bigNum = num1, smallNum=num1;
+            if(bigNum<num2){
+                bigNum=num2;
+            }
+            if(bigNum<num3){
+                bigNum=num3;
+            }
+            if(bigNum>num2){
+                smallNum=num2;
+            }
+            if(smallNum>num3){
+                smallNum=num3;
+            }
+            let resultNum=1;
+            for(let i=0;i<smallNum;i++){
+                resultNum*=bigNum;
+            }
+            console.log(resultNum);
+});
+    </script>
+</html>

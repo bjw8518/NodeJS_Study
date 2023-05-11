@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>글쓰기</title>
+    
+</head>
+<body>
+    <h1>글쓰기</h1>
+    
+    제목<input type="text" id="title"><br>
+    내용<input type="text" id="content"><br>
+    <button value="입력" id="send">
+</body>
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+    $("#send").click(function() {
+        $.ajax({
+            url: `http://localhost/dbtest?title=${$("#title").val()}&content=${$("#content").val()}`,
+            data: {},
+            success: function(data) {
+
+            }
+        });
+    });
+    </script>
+</html>

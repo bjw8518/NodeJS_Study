@@ -34,10 +34,10 @@ app.get('/posts',function(req, res){
 
 app.post('/posts', function(req, res) {
   let title = req.body.title;
-  let content = req.body.content;
-  let sql = "INSERT INTO post (title, content) VALUES (?, ?)";
-  connection.query(sql, [title, content], function (error, results, fields) {
+  let text = req.body.text;
+  let sql = "SELECT * FROM post (title, text) VALUES (?, ?)";
+  connection.query(sql, [title, text], function (error, results, fields) {
     if(error) throw error;
-    res.send(results);
+    res.send(".");
   });
 });

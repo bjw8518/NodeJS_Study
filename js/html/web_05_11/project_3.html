@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    신장<input type="text" id="height">cm&nbsp;&nbsp;체중<input type="text" id="weight">kg
+    <input type="button" value="계산" id="sub">
+    <br>
+    결과 : <div id="result"></div>
+</body>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        /////////////////////////////////
+        $("#sub").click(function(){ //sub 인풋버튼누르면
+            let ipHeight = Number($("#height").val());
+            let ipWeight = Number($("#weight").val());
+            $.ajax({
+            url: `http://localhost/bmiSum?height=${ipHeight}&weight=${ipWeight}`,    //
+            data: {},
+            success:function(data){
+                console.log(data);
+                if (data > 0 && data < 20) {
+                    console.log("저체중");
+                    document.getElementById("result").innerHTML="저체중";
+                } else if (data >= 20 && data < 25) {
+                    console.log("정상");
+                    document.getElementById("result").innerHTML="정상";
+                } else if (data >= 25 && data < 30) {
+                    console.log("과체중");
+                    document.getElementById("result").innerHTML="과체중";
+                } else if (data >= 30 && data < 100) {
+                    console.log("비만");
+                    document.getElementById("result").innerHTML="비만";
+                } else {
+                    console.log("");
+                }
+            }
+        });
+    });
+    </script>
+</html>

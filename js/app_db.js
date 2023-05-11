@@ -21,23 +21,25 @@ var connection = mysql.createConnection({
   database  : 'web'
 });
 
-app.get('/dbtest', function(req,res){
-  res.sendFile(__dirname + "/dbtest.html");
+app.get('/insert', function(req,res){
+  res.sendFile(__dirname + "/insert.html");
 });
 
-app.get('/posts',function(req, res){
-  connection.query('SELECT * FROM post;', function (error, results, fields) {
-    if(error) throw error;
-    res.send(results);
+app.get('/list', function (req,res){
+  let query = `INSERT INTO post
+  (title, content)
+  VALUES
+  ('${req.query.title}','${req.query.cotent}')`;
+  console.log(query);
+
+  connection.query(query,function(error,results,fields){
+    if(error) throw error
   });
 });
 
-app.post('/posts', function(req, res) {
-  let title = req.body.title;
-  let content = req.body.content;
-  let sql = "INSERT INTO post (title, content) VALUES (?, ?)";
-  connection.query(sql, [title, content], function (error, results, fields) {
-    if(error) throw error;
+app.get('/list', function (req, res) {
+  connection.query("SELECT * FROM post2 ORDER BY NO DESC;", function (error, results, fields) {
+    if (error) throw error;
     res.send(results);
   });
 });
