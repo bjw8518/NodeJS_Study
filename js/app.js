@@ -21,9 +21,6 @@ var connection = mysql.createConnection({
   database  : 'web'
 });
 
-app.get('/dbtest', function(req,res){
-  res.sendFile(__dirname + "/dbtest.html");
-});
 
 app.get('/posts',function(req, res){
   connection.query('SELECT * FROM post;', function (error, results, fields) {

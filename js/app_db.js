@@ -21,21 +21,42 @@ var connection = mysql.createConnection({
   database  : 'web'
 });
 
-app.get('/list', function (req,res){
+app.get('/insert',function (req,res){
+  res.sendfile(__dirname+"/insert.html")
+});
+
+app.get('/dbtest',function(req, res){
+  
   let query = `INSERT INTO post
-  (title, content)
-  VALUES
-  ('${req.query.title}','${req.query.cotent}')`;
+              (title, content)
+              VALUES
+              ('${req.query.title}','${req.query.title}')`;
+
   console.log(query);
 
-  connection.query(query,function(error,results,fields){
+  connection.query(query, function(error, results,fields){
     if(error) throw error
   });
 });
 
-app.get('/list', function (req, res) {
-  connection.query("SELECT * FROM post ORDER BY NO DESC;", function (error, results, fields) {
-    if (error) throw error;
-    res.send(results);
+app.get('/list',function (req,res){
+  res.sendfile(__dirname+"/list.html")
+});
+
+app.get('/getList',function (req,res){
+  let query = `select title from post order by no desc`
+  connection.query(query,function(error,results,fields){
+    if(error) throw error
+    res.send(results)
+  });
+});
+
+app.get('/deletePost', function(req,res){
+
+  let query = `delete from post WHERE NO = ${req.query.no};`;
+  console.log(query);
+  connection.query(query, function(error,results,fields){
+    console.log(results);
+    res.send(results)
   });
 });

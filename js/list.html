@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>리스트</title>
 </head>
 <body>
     <div id="listArea">
 
     </div>
+    
 </body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
     $.ajax({
-        url : `http://localhost/list`,
-        data : {},
-        success : function(data){
-
-        for(let i = 0; i < data.length; i++){
-            let post = data[i];
-            $("#listArea").append(`번호 : ${post.no} / 제목 : ${post.title} / 내용 : ${post.content} <input type="button" id=${post.no} value="삭제"><br><br>`);
+            url: `http://localhost/getList`,
+            data: {},
+            success: function (data) {
+                for(let i=0;i<data.length;i++){
+                    let post = data[i];
+                    console.log(post);
+                    $("#listArea").append(`번호 : ${post.no} / 제목 : ${post.title} / 내용 : ${post.content}
+                    <input type="button" name="" id=${post.no} value="보기" onclick="moveTodetailPage(${post.no})">
+                    <input type="button" name="" id=${post.no} value="삭제" onclick="deletePost(${post.no})"</div>`)
+                }
+            }
+        });
+        function moveTodetailPage(no){
+            location.href=`http://localhost/detailPage?no=${no}`;
         }
-}
-});
+
+
+        function deletePost(no){
+            $.ajax({
+            url: `http://localhost/deletePost?no=${no}`,
+            data: {},
+            success: function (data) {
+                console.log(data);
+                if(data.affectedRows==1){
+                    $(`#post${no}`).remove();
+                }
+            }
+        });
+        }
+
+        
 </script>
 </html>
