@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="listArea">
-
-    </div>
-    
+    제목:<span id="title"></span>
+    내용:<span id="content"></span>
+    <br>
+    <input type="button" name="" value="메인" id="goToMainBtn">
 </body>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>
-    $.ajax({
-            url: `http://localhost/getList`,
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        let no=location.href.split("?")[1];
+        $.ajax({
+            url: `http://localhost/getSringlePost?no=${no}`,
             data: {},
-            success: function (data) {
-                for(let i=0;i<data.length;i++){
-                    let post = data[i];
-                    console.log(post);
-                    $("#listArea").append(`번호 : ${post.no} / 제목 : ${post.title} / 내용 : ${post.content}<br>`)
-                }
+            success: function(data) {
+                $("title").html(data[0].title);
+                $("content").html(data[0].content)
             }
         });
+        $("#goToMainBtn").click(function(){
+            location.href=`http://localhost/list`;
+        });
+    </script>
 
-        
-</script>
 </html>

@@ -21,7 +21,7 @@
                 for(let i=0;i<data.length;i++){
                     let post = data[i];
                     console.log(post);
-                    $("#listArea").append(`번호 : ${post.no} / 제목 : ${post.title} / 내용 : ${post.content}
+                    $("#listArea").append(`번호 : ${post.No} / 제목 : ${post.title} / 내용 : ${post.content}
                     <input type="button" name="" id=${post.no} value="보기" onclick="moveTodetailPage(${post.no})">
                     <input type="button" name="" id=${post.no} value="삭제" onclick="deletePost(${post.no})"</div>`)
                 }

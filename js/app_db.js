@@ -22,7 +22,12 @@ var connection = mysql.createConnection({
 });
 
 app.get('/insert',function (req,res){
-  res.sendfile(__dirname+"/insert.html")
+  //res.sendfile(__dirname+"/insert.html")
+  res.sendfile("insert.html")
+});
+
+app.get('/detailPage',function (req,res){
+  res.sendfile("detailPage.html")
 });
 
 app.get('/dbtest',function(req, res){
@@ -30,7 +35,7 @@ app.get('/dbtest',function(req, res){
   let query = `INSERT INTO post
               (title, content)
               VALUES
-              ('${req.query.title}','${req.query.title}')`;
+              ('${req.query.title}','${req.query.content}')`;
 
   console.log(query);
 
@@ -40,11 +45,19 @@ app.get('/dbtest',function(req, res){
 });
 
 app.get('/list',function (req,res){
-  res.sendfile(__dirname+"/list.html")
+  res.sendfile("list.html")
 });
 
 app.get('/getList',function (req,res){
-  let query = `select title from post order by no desc`
+  let query = `select no, title from post order by no desc`
+  connection.query(query,function(error,results,fields){
+    if(error) throw error
+    res.send(results)
+  });
+});
+
+app.get('/getSinglePost',function (req,res){
+  let query = `select * from post where no =${req.query.no};`
   connection.query(query,function(error,results,fields){
     if(error) throw error
     res.send(results)
