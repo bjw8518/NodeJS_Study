@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="number"><br>
+        <button id="startBtn">시작</button>
+        <button id="stopBtn">종료</button>
+    
+        <div id="output"></div>
+
+    </div>
+    <script>
+        let count=1;
+        let interval;
+        $("#startBtn").click(function(){
+            let num = $("number").val()
+            setTimeout(function(){
+                interval = setInterval(function(){
+                    $("output").append(num*count);
+                    count++;
+                },1000);
+            },3000);
+        });
+        $("#stopBtn").click(function(){
+            clearInterval(interval);
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title></title>
+    </head>
+    <body>
+    <div id="listArea">
+
+    </div>
+    <input type="button" name="" value="글쓰기" onclick="moveToInsertPage()">
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    /*
+    $(document).ready(function() {
+            $("#send").click(function() {
+                let title = $("#titleInput").val();
+                let content = $("#contentInput").val();
+                $.ajax({
+                    url: "/posts",
+                    method: "POST",
+                    data: {title: title, text: text},
+                    success: function(response) {
+                        $("#result").html(response);
+                    }
+                });
+            });
+        });
+        */
+    $.ajax({
+        url:`http://localhost/getList`,
+        data: {},
+        success:function(data){
+        for(let i=0;i<data.length;i++) {
+            let post = data[i];
+            console.log(post);
+            $("#listArea").append(`<div id="post${post.no}">${post.title}
+                <input type="button" name="" value="${post.no}번 글 보기" onclick="moveToDetailPage(${post.no})">
+                <input type="button" name="" value="글수정" onclick="moveToUpdatePage(${post.no})">
+                <input type="button" name="" value="글삭제" onclick="deletePost(${post.no})"><br><br></div>`)
+            }
+        }
+    });
+    function moveToDetailPage(no) {
+        location.href = `http://localhost/detailPage?${no}`;
+    }
+    function moveToUpdatePage(no) {
+        location.href = `http://localhost/updatePage?${no}`;
+    }
+    function moveToInsertPage(no) {
+        location.href = `http://localhost/insertPage`;
+    }
+    function deletePost(no) {
+
+      $.ajax({
+        url:`http://localhost/deletePost?no=${no}`,
+        data: {},
+        success:function(data){
+          console.log(data);
+          if(data.affectedRows==1) {
+            alert("삭제되었습니다");
+            $(`#post${no}`).remove();
+          }
+        }
+      });
+
+    }
+
+  </script>
+</html>

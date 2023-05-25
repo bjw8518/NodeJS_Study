@@ -5,9 +5,10 @@
     <title></title>
   </head>
   <body>
-    제목 : <span id="title"></span> <br>
-    내용 : <span id="content"></span>
+    제목 : <input type="text" id="title"> <br>
+    내용 : <textarea rows="20" cols="80" id="content"></textarea>
     <br>
+    <input type="button" name="" value="수정" id="updateBtn">
     <input type="button" name="" value="메인페이지" id="MainBtn">
   </body>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -33,13 +34,26 @@
       url:`http://localhost/getPost?no=${no}`,
       data: {},
       success:function(data){
-        $("#title").html(data[0].title);
-        $("#content").html(data[0].content);
+        $("#title").val(data[0].title);
+        $("#content").val(data[0].content);
       }
     });
 
     $("#MainBtn").click(function(){
       location.href = `http://localhost/listPage`;
+    });
+
+    $("#updateBtn").click(function(){
+      $.ajax({
+        url:`http://localhost/updatePost?title=${$("#title").val()}&content=${$("#content").val()}&no=${no}`,
+        data: {},
+        success:function(data){
+          if(data.affectedRows==1) {
+            alert("수정 완료");
+            location.href = `http://localhost/listPage`;
+          }
+        }
+      });
     });
 
 
