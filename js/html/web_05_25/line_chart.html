@@ -1,0 +1,57 @@
+<!--
+    
+--><!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>fuck</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div id="chart_div"></div>
+
+    </body>
+    <script>
+    let drawingGraphValue = [];
+    function drawChart() {
+    setInterval(function(){
+        for(let i=1; i<=100; i++) {
+            drawingGraphValue[i-1] = [i,
+            1 + Math.floor(Math.random() * 11)+10,
+            1 + Math.floor(Math.random() * 11)+10,
+            1 + Math.floor(Math.random() * 11)+10];
+        }
+        drawCurveTypes(drawingGraphValue);
+    }, 1000);
+}
+google.charts.load('current', {packages: ['corechart', 'line']});
+
+google.charts.setOnLoadCallback(drawChart);
+
+function drawCurveTypes() {
+    let data = new google.visualization.DataTable();
+    data.addColumn('number', 'X');
+    data.addColumn('number', '개');
+    data.addColumn('number', '고양이');
+    data.addColumn('number', '쏘우');
+
+    data.addRows(drawingGraphValue);
+
+    let options = {
+        hAxis: {
+            title: 'Time'
+        },
+        vAxis: {
+            title: 'Popularity'
+        },
+        series: {
+            1: {curveType: 'function'}
+          // 1: {curveType: 'none'}
+        }
+    };
+
+    let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+}
+</script>
+</html>

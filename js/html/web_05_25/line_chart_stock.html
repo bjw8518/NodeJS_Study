@@ -1,0 +1,70 @@
+<!--네이버 주식에서 주식종목을 하나 선택하여
+1초에 한번씩 주식 가격을 받아와서
+그 최근 10초의 가격을 구글 그래프로 그리세요-->
+
+<!--
+https://polling.finance.naver.com/api/realtime/domestic/stock/005930
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <span id="result"></span>
+    <br><br>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="chart_div"></div>
+  </body>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    let time=0;
+    let graphValue = [];
+    let stockPrice;
+
+        $.ajax({
+            url: `https://polling.finance.naver.com/api/realtime/domestic/stock/005930`,
+            //https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:328380|SERVICE_RECENT_ITEM:328380
+            data: {},
+            success:function(data){
+                console.log(data);
+            }
+        });
+
+    // setInterval(function () {
+    //     $.ajax({
+    //         url : '/getNaver',
+    //         type : 'GET',
+    //         data : {
+
+    //         }
+    //     });
+    // },1000);
+
+
+    google.charts.load('current', {packages: ['corechart', 'line']});
+    google.charts.setOnLoadCallback(drawCurveTypes);
+
+    function drawCurveTypes() {
+        let data = new google.visualization.DataTable();
+        data.addColumn('number', '시간(초)');
+        data.addColumn('number', '삼성전자');
+        data.addRows(graphValue);
+
+        let options = {
+        hAxis: {
+            title: '시간(초)'
+        },
+        vAxis: {
+            title: '가격(원)'
+        },
+        series: {
+            1: {curveType: 'function'}
+        }
+    };
+
+    let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+    }
+</script>

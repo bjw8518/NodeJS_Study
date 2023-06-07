@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>fuck</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div id="chart_div"></div>
+
+    </body>
+    <script>
+function drawCurveTypes() {
+    let data = new google.visualization.DataTable();
+    data.addColumn('number', 'X');
+    data.addColumn('number', '개');
+    data.addColumn('number', '고양이');
+    data.addColumn('number', '쏘우');
+
+    let dataArr=[];
+    
+    for(let i=0;i<11;i++){
+        addRows[i]
+    }
+
+    let options = {
+        hAxis: {
+            title: 'Time'
+        },
+        vAxis: {
+            title: 'Popularity'
+        },
+        series: {
+            1: {curveType: 'function'}
+          // 1: {curveType: 'none'}
+        }
+    };
+
+    let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+}
+</script>
+</html>
