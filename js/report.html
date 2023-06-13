@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="listArea"></div>
+
+    <form id="addForm">
+        <input type="text" name="title" placeholder="제목"><br><br>
+        <textarea id="contentInput"></textarea><br>
+        <input type="submit" value="추가">
+    </form>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+    $(document).ready(function() {
+        $.ajax({
+            url: "/getList",
+            type: "GET",
+            success: function(data) {
+                for (let i = 0; i < data.length; i++) {
+                    let post = data[i];
+                    $("#listArea").append(`번호: ${post.no} / 제목: ${post.title} / 내용: ${post.content}
+                    <input type="button" class="modify" id=${post.no} value="수정">
+                    <input type="button" class="delete" id=${post.no} value="삭제"><br><br>`);
+                }
+
+                $(".modify").click(function() {
+                    let no = $(this).attr("id");
+                    let title = prompt("제목을 입력하세요.", $(this).prev().prev().text().split(" : ")[1]);
+                    let content = prompt("내용을 입력하세요.", $(this).prev().text().split(" : ")[1]);
+
+                    $.ajax({
+                        url: "/modify",
+                        type: "POST",
+                        data: { no: no, title: title, content: content },
+                        success: function(data) {
+                            location.reload();//새로고침
+                        }
+                    });
+                });
+            }
+        });
+
+        $("#addForm").submit(function(event) {
+            event.preventDefault();
+            let title = $("input[name='title']").val();
+            let content = $("input[name='content']").val();
+            $.ajax({
+                url: "/add",
+                type: "POST",
+                data: { title: title, content: content },
+                success: function(data) {
+                    location.reload();//새로고침
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
